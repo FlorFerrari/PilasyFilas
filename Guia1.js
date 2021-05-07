@@ -34,36 +34,44 @@ function pasarPila(array1, array2){
 // 4) Realizar un programa para:Cargar desde teclado una pila DADA y pasar a la pila DISTINTOS
 // todos aquellos elementos distintos al valor 8. Los elementos iguales a 8 deben quedar en DADA.
 
-let dada = []
-let distintos = [];
-
-for (let i = 0; i < dada.length; i++) {
-    if (dada[i] != 8) {
-        distintos.push(dada[i])
+function pasarElementoDistinto(array1, array2, x) {
+while (array1.length > 0) {
+    if (array1[array1.length - 1] != x) {
+        array2.push(array1.pop())
         
+    } else {
+        array1.pop();
     }
+     
 
 }
+}
+let dada = [2, 5, 8, 9, 1, 3, 5, 8];
+let distintos = [];
+pasarElementoDistinto(dada, distintos, 8)
+
 // Guia 1 - Ejercicio 7
+// 7) Suponiendo la existencia de una pila LIMITE, pasar los elementos de la pila DADA que sean 
+// mayores o iguales que el tope de LIMITE a la pila MAYORES, y los elementos que sean menores a 
+// la pila MENORES. ¿Funciona tu solución si DADA está vacía? 
+
 let limite = [];
 let dada = [];
 let mayores = [];
 let menores = [];
 
-
-
-
-for (let i = 0; i < dada.length; i++) {
-    if (dada[i] >= limite.length - 1){
-        mayores.push(dada[i]);
+while (dada.length > 0) {
+    if (dada[dada.length - 1] >= limite[limite.length - 1]) {
+        mayores.push(dada.pop())
+    } else {
+        menores.push(dada.pop())
     }
-    else {
-        menores.push(dada[i]);
-    }
-    
 }
 
+
 // Guia 1 - Ejercicio 8
+// Dada una pila ORIGEN que se carga desde el teclado, y una pila DESTINO inicialmente vacía, 
+// se pretende pasar los datos de ORIGEN a DESTINO pero dejándolos en el mismo orden. 
 
 var origen = [2, 3, 4, 5];    
 var destino = [];
@@ -73,7 +81,9 @@ var auxiliar2 = [];
 pasarPila(origen, auxiliar);
 pasarPila(auxiliar, destino);
 
-// 8.1 
+// 8.1  
+// Modificar el programa anterior para Cargar desde el teclado la pila ORIGEN y que la 
+// invierta, es decir, que quede ORIGEN con los mismos elementos pero invertidos 
 
 pasarPila(origen, auxiliar);
 pasarPila(auxiliar, auxiliar2);
